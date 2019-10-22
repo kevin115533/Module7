@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/*Kevin Tran
+ * ITD 1253
+ * Due Date: Oct 22
+ */
 
 namespace Module6MethodsProjectDL
 {
@@ -26,7 +30,7 @@ namespace Module6MethodsProjectDL
 
         //Put Your method here
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnModulus_Click(object sender, EventArgs e)
         {
             decimal dLeft = 0.0m;
             decimal dRight = 0.0m;
@@ -39,22 +43,36 @@ namespace Module6MethodsProjectDL
             szLeft = txtLeft.Text;
             szRight = txtRight.Text;
 
-            dLeft = Convert.ToDecimal(szLeft);
-            dRight = Convert.ToDecimal(szRight);
-
-            dAnswer = dLeft % dRight;
-
-            szAnswer = dAnswer.ToString();
-
-            szEquation = szLeft + " % " + szRight + " = " + szAnswer;
-
-            lblAnswer.Text = "";
-            lblAnswer.Text = szEquation;
-
-
+            try
+            {
+                dLeft = Convert.ToDecimal(szLeft);
+                dRight = Convert.ToDecimal(szRight);
+            }
+            catch (System.FormatException) {}
+            if (!Decimal.TryParse(txtLeft.Text, out dLeft) || !Decimal.TryParse(txtRight.Text, out dRight))
+            {
+                lblAnswer.Text = "Error, please use numeric value";
+                if (szLeft == "" || szRight == "")
+                {
+                    lblAnswer.Text = lblAnswer.Text + "Error, operand values are blank";
+                }
+            }
+            else if (dLeft < 0.0m || dRight < 0.0m)
+            {
+                lblAnswer.Text = "Negatives can't be used with Modulus";
+            }
+            
+            else
+            {
+                dAnswer = dLeft % dRight;
+                szAnswer = dAnswer.ToString();
+                szEquation = szLeft + " % " + szRight + " = " + szAnswer;
+                lblAnswer.Text = "";
+                lblAnswer.Text = szEquation;
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnDivide_Click(object sender, EventArgs e)
         {
             decimal dLeft = 0.0m;
             decimal dRight = 0.0m;
@@ -67,22 +85,36 @@ namespace Module6MethodsProjectDL
             szLeft = txtLeft.Text;
             szRight = txtRight.Text;
 
-            dLeft = Convert.ToDecimal(szLeft);
-            dRight = Convert.ToDecimal(szRight);
+            try
+            {
+                dLeft = Convert.ToDecimal(szLeft);
+                dRight = Convert.ToDecimal(szRight);
+            }
+            catch (System.FormatException){}
+            if (!Decimal.TryParse(txtLeft.Text, out dLeft) || !Decimal.TryParse(txtRight.Text, out dRight))
+            {
+                lblAnswer.Text = "Error, please use numeric value";
+                if (szLeft == "" || szRight == "")
+                {
+                    lblAnswer.Text = lblAnswer.Text + "Error, operand values are blank";
+                }
+            }
 
-            dAnswer = dLeft / dRight;
-
-            szAnswer = dAnswer.ToString();
-
-            szEquation = szLeft + " / " + szRight + " = " + szAnswer;
-
-            lblAnswer.Text = "";
-            lblAnswer.Text = szEquation;
-
-
+            else if (dRight == 0.0m)
+            {
+                lblAnswer.Text = "You can not divide by 0";
+            }
+            else
+            {
+                dAnswer = dLeft / dRight;
+                szAnswer = dAnswer.ToString();
+                szEquation = szLeft + " / " + szRight + " = " + szAnswer;
+                lblAnswer.Text = "";
+                lblAnswer.Text = szEquation;
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnMulti_Click(object sender, EventArgs e)
         {
             decimal dLeft = 0.0m;
             decimal dRight = 0.0m;
@@ -95,22 +127,32 @@ namespace Module6MethodsProjectDL
             szLeft = txtLeft.Text;
             szRight = txtRight.Text;
 
-            dLeft = Convert.ToDecimal(szLeft);
-            dRight = Convert.ToDecimal(szRight);
+            try
+            {
+                dLeft = Convert.ToDecimal(szLeft);
+                dRight = Convert.ToDecimal(szRight);
+            }
+            catch (System.FormatException){ }
+            if (!Decimal.TryParse(txtLeft.Text, out dLeft) || !Decimal.TryParse(txtRight.Text, out dRight))
+            {
+                lblAnswer.Text = "Error, please use numeric value";
+                if (szLeft == "" || szRight == "")
+                {
+                    lblAnswer.Text = lblAnswer.Text + "Error, operand values are blank";
+                }
+            }
 
-            dAnswer = dLeft * dRight;
-
-            szAnswer = dAnswer.ToString();
-
-            szEquation = szLeft + " * " + szRight + " = " + szAnswer;
-
-            lblAnswer.Text = "";
-            lblAnswer.Text = szEquation;
-
-
+            else
+            {
+                dAnswer = dLeft * dRight;
+                szAnswer = dAnswer.ToString();
+                szEquation = szLeft + " * " + szRight + " = " + szAnswer;
+                lblAnswer.Text = "";
+                lblAnswer.Text = szEquation;
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSubtract_Click(object sender, EventArgs e)
         {
             decimal dLeft = 0.0m;
             decimal dRight = 0.0m;
@@ -123,22 +165,32 @@ namespace Module6MethodsProjectDL
             szLeft = txtLeft.Text;
             szRight = txtRight.Text;
 
-            dLeft = Convert.ToDecimal(szLeft);
-            dRight = Convert.ToDecimal(szRight);
+            try
+            {
+                dLeft = Convert.ToDecimal(szLeft);
+                dRight = Convert.ToDecimal(szRight);
+            }
+            catch (System.FormatException){}
+            if (!Decimal.TryParse(txtLeft.Text, out dLeft) || !Decimal.TryParse(txtRight.Text, out dRight))
+            {
+                lblAnswer.Text = "Error, please use numeric value";
+                if (szLeft == "" || szRight == "")
+                {
+                    lblAnswer.Text = lblAnswer.Text + "Error, operand values are blank";
+                }
+            }
 
-            dAnswer = dLeft - dRight;
-
-            szAnswer = dAnswer.ToString();
-
-            szEquation = szLeft + " - " + szRight + " = " + szAnswer;
-
-            lblAnswer.Text = "";
-            lblAnswer.Text = szEquation;
-
-
+            else
+            {
+                dAnswer = dLeft - dRight;
+                szAnswer = dAnswer.ToString();
+                szEquation = szLeft + " - " + szRight + " = " + szAnswer;
+                lblAnswer.Text = "";
+                lblAnswer.Text = szEquation;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             decimal dLeft = 0.0m;
             decimal dRight = 0.0m;
@@ -151,18 +203,39 @@ namespace Module6MethodsProjectDL
             szLeft = txtLeft.Text;
             szRight = txtRight.Text;
 
-            dLeft = Convert.ToDecimal(szLeft);
-            dRight = Convert.ToDecimal(szRight);
-
-            dAnswer = dLeft + dRight;
-
-            szAnswer = dAnswer.ToString();
-
-            szEquation = szLeft + " + " + szRight + " = " + szAnswer;
-
-            lblAnswer.Text = "";
-            lblAnswer.Text = szEquation;
-
+            try
+            {
+                dLeft = Convert.ToDecimal(szLeft);
+                dRight = Convert.ToDecimal(szRight);
+            }
+            catch (System.FormatException) {
+               
+            }
+            if(!Decimal.TryParse(txtLeft.Text, out dLeft) || !Decimal.TryParse(txtRight.Text, out dRight))
+            {
+                lblAnswer.Text = "Error, please use numeric value";
+                if (szLeft == "" || szRight == "")
+                {
+                    lblAnswer.Text = lblAnswer.Text + "Error, operand values are blank";
+                }
+            }
+            
+            else
+            {
+                dAnswer = dLeft + dRight;
+                szAnswer = dAnswer.ToString();
+                szEquation = szLeft + " + " + szRight + " = " + szAnswer;
+                lblAnswer.Text = "";
+                lblAnswer.Text = szEquation;
+            }
+        }
+        
+        private void frmCatchersMitt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

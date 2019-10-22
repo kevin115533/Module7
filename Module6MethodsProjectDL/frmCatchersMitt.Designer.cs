@@ -90,7 +90,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSubtract
             // 
@@ -102,7 +102,7 @@
             this.btnSubtract.TabIndex = 5;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
-            this.btnSubtract.Click += new System.EventHandler(this.button2_Click);
+            this.btnSubtract.Click += new System.EventHandler(this.btnSubtract_Click);
             // 
             // btnMultiply
             // 
@@ -114,7 +114,7 @@
             this.btnMultiply.TabIndex = 6;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = true;
-            this.btnMultiply.Click += new System.EventHandler(this.button3_Click);
+            this.btnMultiply.Click += new System.EventHandler(this.btnMulti_Click);
             // 
             // btnDivide
             // 
@@ -126,7 +126,7 @@
             this.btnDivide.TabIndex = 7;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
-            this.btnDivide.Click += new System.EventHandler(this.button4_Click);
+            this.btnDivide.Click += new System.EventHandler(this.btnDivide_Click);
             // 
             // btnModulus
             // 
@@ -138,7 +138,7 @@
             this.btnModulus.TabIndex = 8;
             this.btnModulus.Text = "%";
             this.btnModulus.UseVisualStyleBackColor = true;
-            this.btnModulus.Click += new System.EventHandler(this.button5_Click);
+            this.btnModulus.Click += new System.EventHandler(this.btnModulus_Click);
             // 
             // lblAnswer
             // 
@@ -168,9 +168,11 @@
             this.Controls.Add(this.lblLeft);
             this.Controls.Add(this.txtLeft);
             this.Controls.Add(this.txtRight);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCatchersMitt";
             this.Text = "3rd Party validation not required";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCatchersMitt_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
